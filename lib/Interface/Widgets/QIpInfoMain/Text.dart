@@ -11,7 +11,8 @@ class QIpInfoMainText extends StatelessWidget {
     return Column(
       children: [
         Text("Ваш IP-адрес:", style: Theme.of(context).textTheme.bodyMedium,),
-        provider.userIp != null ? Text(provider.userIp.toString(), style: Theme.of(context).textTheme.labelMedium,) : CircularProgressIndicator(color: Colors.red,)
+        provider.userIp != null ? 
+          Text(provider.userIp.toString(), style: Theme.of(context).textTheme.labelMedium,) : Column(children: [SizedBox(height: 10,),CircularProgressIndicator(color: Colors.red,), SizedBox(height: 10,)])
       ],
     );
   }

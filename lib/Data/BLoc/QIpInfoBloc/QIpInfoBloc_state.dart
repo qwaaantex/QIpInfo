@@ -1,1 +1,3 @@
-abstract class QIpInfoBlocState {}
+abstract class QIpInfoBlocState {
+}
+

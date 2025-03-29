@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 class QProvider with ChangeNotifier {
   dynamic _userIp;
+  final TextEditingController _controller = TextEditingController();
   dynamic get userIp => _userIp;
+  TextEditingController get controller => _controller;
   
   QProvider() {
     loadUserIp(); 
@@ -17,7 +19,7 @@ class QProvider with ChangeNotifier {
     _userIp = response;
     notifyListeners();
     } catch (e) {
-      _userIp = 'null';
+      _userIp = null;
     }
     
   }

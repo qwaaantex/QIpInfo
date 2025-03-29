@@ -9,7 +9,7 @@ class QIpInfoMainLicense extends StatelessWidget {
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.5,
         child: Text("Приложение не несет ответственности за ваши действия," 
-        " оно лишь помогает вам узнать подробности об IP-адресе", style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center,),
+        " оно лишь помогает вам узнать подробности об IP-адресе", style: TextStyle(color: Colors.grey, fontSize: 11), textAlign: TextAlign.center,),
       ),
     );
   }

@@ -14,12 +14,12 @@ class QIpInfoMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(providers: [
-      BlocProvider(create: (context) => QIpInfoBloc(QProvider().userIp))
+      BlocProvider(create: (context) => QIpInfoBloc())
     ],
       child: MaterialApp(
       theme: themeLight(),
       darkTheme: themeDark(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       home: ChangeNotifierProvider(create: (context) => QProvider(),
         child: ScaffoldMainIpInfo())
     ));

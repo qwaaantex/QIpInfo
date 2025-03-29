@@ -1,7 +1,9 @@
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_state.dart';
-import 'package:flutter/widgets.dart';
 
 class QIpInfoBlocUserInfo extends QIpInfoBlocState {
-  TextEditingController controller;
+  String? controller;
   QIpInfoBlocUserInfo(this.controller);
+}
+
+class QIpInfoBlocRemoveAll extends QIpInfoBlocState {
 }
