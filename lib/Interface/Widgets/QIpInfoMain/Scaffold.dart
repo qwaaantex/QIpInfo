@@ -13,13 +13,15 @@ class ScaffoldMainIpInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      appBar: AppBar(leading: IconButton(onPressed: () {
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        leading: IconButton(onPressed: () {
         context.read<QIpInfoBloc>().add(QIpInfoBlocRemoveAll());
       }, icon: Icon(HugeIcons.strokeRoundedRemoveCircle, color: Theme.of(context).iconTheme.color,)),
         actions: [
         IconButton(onPressed: () {
           Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
-            return SlideTransition(position: animation1.drive(Tween(begin: Offset(1.5, 0.0), end: Offset(0.0, 0.0))), child: QIpInfoSettings(),);
+            return SlideTransition(position: animation1.drive(Tween(begin: Offset(2.0, 0.0), end: Offset(0.0, 0.0))), child: QIpInfoSettings(),);
           }));
         },
           icon:Icon(HugeIcons.strokeRoundedSettings03, color: Theme.of(context).iconTheme.color,))

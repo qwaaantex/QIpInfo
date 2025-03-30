@@ -8,7 +8,9 @@ class QIpInfoSettingsScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading:
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        leading:
         IconButton(onPressed: () {
           Navigator.pop(context);
         }, icon: Icon(HugeIcons.strokeRoundedArrowLeft01, color: Theme.of(context).iconTheme.color,)),

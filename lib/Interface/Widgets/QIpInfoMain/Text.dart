@@ -12,7 +12,7 @@ class QIpInfoMainText extends StatelessWidget {
       children: [
         Text("Ваш IP-адрес:", style: Theme.of(context).textTheme.bodyMedium,),
         provider.userIp != null ? 
-          Text(provider.userIp.toString(), style: Theme.of(context).textTheme.labelMedium,) : Column(children: [SizedBox(height: 10,),CircularProgressIndicator(color: Colors.red,), SizedBox(height: 10,)])
+          Text(provider.userIp.toString(), style: Theme.of(context).textTheme.labelSmall,) : Column(children: [SizedBox(height: 10,),CircularProgressIndicator(color: Colors.red,), SizedBox(height: 10,)])
       ],
     );
   }

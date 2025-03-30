@@ -1,4 +1,8 @@
+import 'package:QIpInfo/Data/BLoc/QIpInfoThemerBloc/QIpInfoThemerBloc_bloc.dart';
+import 'package:QIpInfo/Interface/Screens/QIpInfoConfidenty.dart';
+import 'package:QIpInfo/Interface/Screens/QIpInfoUsersLicence.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class QIpInfoSettingsListTile extends StatelessWidget {
@@ -9,9 +13,18 @@ class QIpInfoSettingsListTile extends StatelessWidget {
     return Column(
     
       children: [
-        ListTile(title: Text("Тема", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedColorPicker, color: Theme.of(context).iconTheme.color),),
+        BlocBuilder<QIpInfoThemerBlocBloc, bool>(
+          builder: (context, state) { return ListTile(title: Text("Тема", style: Theme.of(context).textTheme.bodyMedium,), trailing: Switch(value: state, onChanged: (value) {
+          
+            context.read<QIpInfoThemerBlocBloc>().add(QIpInfoThemerBlocEvent());
+          }), leading: Icon(HugeIcons.strokeRoundedColorPicker, color: Theme.of(context).iconTheme.color,),);}),
         Divider(color: Colors.grey,),
-        ListTile(title: Text("Конфиденциальность", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedLocker, color: Theme.of(context).iconTheme.color,),),
+        GestureDetector(onTap: () {
+          Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
+            return FadeTransition(opacity: animation1, child: QIpInfoConfidenty(),);
+          }));
+        },
+          child: ListTile(title: Text("Конфиденциальность", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedLocker, color: Theme.of(context).iconTheme.color,),)),
         Divider(color: Colors.grey,),
         ListTile(title: Text("Перезапуск служб", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedRefresh, color: Theme.of(context).iconTheme.color,),),
         Divider(color: Colors.grey,),
@@ -19,7 +32,12 @@ class QIpInfoSettingsListTile extends StatelessWidget {
         Divider(color: Colors.grey,),
         ListTile(title: Text("Оставить отзыв", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedBookUpload, color: Theme.of(context).iconTheme.color,),),
         Divider(color: Colors.grey,),
-        ListTile(title: Text("Условия пользования", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedAccess, color: Theme.of(context).iconTheme.color,),)
+        GestureDetector(onTap: () {
+          Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
+            return FadeTransition(opacity: animation1, child: QIpInfoUsersLicense(),);
+          }));
+        },
+          child: ListTile(title: Text("Условия пользования", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedAccess, color: Theme.of(context).iconTheme.color,),))
       ],
     );
   }
