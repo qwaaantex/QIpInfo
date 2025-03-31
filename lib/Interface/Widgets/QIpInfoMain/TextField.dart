@@ -23,8 +23,8 @@ class QIpInfoMainTextField extends StatelessWidget {
             children: [
               TextField(
                 controller: controller,
-                style: Theme.of(context).textTheme.bodyMedium,
-                cursorColor: Theme.of(context).textSelectionTheme.cursorColor,
+                style: Theme.of(context).textTheme.headlineSmall,
+                cursorColor: Theme.of(context).textTheme.headlineSmall?.color,
                 onSubmitted: (value) {
                   BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(value));
                 
@@ -36,14 +36,14 @@ class QIpInfoMainTextField extends StatelessWidget {
                 hintText: "IP-адрес",
                   fillColor: Colors.red[300],
                   filled: true,
-                  hintStyle: TextStyle(color: Theme.of(context).iconTheme.color, fontSize: 13),
+                  hintStyle: TextStyle(color: Colors.grey.shade300, fontSize: 13),
                   prefixIcon: IconButton(onPressed: () {
                     controller.clear();
                   },
-                    icon: Icon(HugeIcons.strokeRoundedClean, color: Theme.of(context).iconTheme.color,)),
+                    icon: Icon(HugeIcons.strokeRoundedClean, color: Theme.of(context).textTheme.headlineSmall?.color,)),
                   suffixIcon: IconButton(onPressed: () {
                     BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(controller.text));
-                  }, icon: Icon(HugeIcons.strokeRoundedSearch01, color: Theme.of(context).iconTheme.color,)),
+                  }, icon: Icon(HugeIcons.strokeRoundedSearch01, color: Theme.of(context).textTheme.headlineSmall?.color,)),
             enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide(width: 2, color: Colors.red)),
                   focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide(width: 2, color: Colors.red))
                 ),
@@ -55,7 +55,8 @@ class QIpInfoMainTextField extends StatelessWidget {
               BlocBuilder<QIpInfoBloc, QIpInfoModel>(
                   key: ValueKey<dynamic>(context.read<QIpInfoBloc>().state),
                     builder:(context, state) {return AnimatedSwitcher(duration: Duration(milliseconds: 700),
-                child: state.success == null || controller.text == '' ? Center(child: Text("Пусто, говорят тут побывали драконы", style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,)) : state.success == false ?
+                child: state.success == null || controller.text == '' ? Center(
+                  child: Text("Пусто, говорят тут побывали драконы", style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,)) : state.success == false ?
                 Center(
                   child: Column(mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -98,7 +99,7 @@ class QIpInfoMainTextField extends StatelessWidget {
                           
               ),
         
-      ]),
+        ]),
       )));
   }
 }
