@@ -9,14 +9,20 @@ class QIpInfoMainColumn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.center,
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        QIpInfoMainText(),
-        SizedBox(height: 20,),
-        QIpInfoMainTextField(),
-        Spacer(),
-        QIpInfoMainLicense(),
-        SizedBox(height: 40,)
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            QIpInfoMainText(),
+            SizedBox(height: 20,),
+            QIpInfoMainTextField(),
+          ],
+        ),
+        Padding(padding: EdgeInsets.only(bottom: 10),
+          child: QIpInfoMainLicense()),
+        
+        
     ],);
   }
 }

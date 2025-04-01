@@ -10,9 +10,9 @@ class QIpInfoMainText extends StatelessWidget {
     final provider = context.watch<QProvider>();
     return Column(
       children: [
-        Text("Ваш IP-адрес:", style: Theme.of(context).textTheme.bodyMedium,),
+        Text("Ваш IP-адрес:", style: Theme.of(context).textTheme.bodyLarge,),
         provider.userIp != null ? 
-          Text(provider.userIp.toString(), style: Theme.of(context).textTheme.labelSmall,) : Column(children: [SizedBox(height: 10,),CircularProgressIndicator(color: Colors.red,), SizedBox(height: 10,)])
+          Text(provider.userIp.toString(), style: Theme.of(context).textTheme.titleMedium,) : Column(children: [SizedBox(height: 10,),CircularProgressIndicator(color: Colors.red,), SizedBox(height: 10,)])
       ],
     );
   }

@@ -5,7 +5,6 @@ import 'package:QIpInfo/Data/Provider/QProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class QIpInfoMainTextField extends StatelessWidget {
@@ -23,8 +22,8 @@ class QIpInfoMainTextField extends StatelessWidget {
             children: [
               TextField(
                 controller: controller,
-                style: Theme.of(context).textTheme.headlineSmall,
-                cursorColor: Theme.of(context).textTheme.headlineSmall?.color,
+                style: TextStyle(color: Colors.black, fontSize: 15),
+                cursorColor: Colors.black,
                 onSubmitted: (value) {
                   BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(value));
                 
@@ -36,15 +35,14 @@ class QIpInfoMainTextField extends StatelessWidget {
                 hintText: "IP-адрес",
                   fillColor: Colors.red[300],
                   filled: true,
-                  hintStyle: TextStyle(color: Colors.grey.shade300, fontSize: 13),
+                  hintStyle: Theme.of(context).textTheme.displaySmall,
                   prefixIcon: IconButton(onPressed: () {
                     controller.clear();
                   },
-                    icon: Icon(HugeIcons.strokeRoundedClean, color: Theme.of(context).textTheme.headlineSmall?.color,)),
+                    icon: Icon(HugeIcons.strokeRoundedClean, color: Colors.black)),
                   suffixIcon: IconButton(onPressed: () {
                     BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(controller.text));
-                  }, icon: Icon(HugeIcons.strokeRoundedSearch01, color: Theme.of(context).textTheme.headlineSmall?.color,)),
-            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide(width: 2, color: Colors.red)),
+                 }, icon: Icon(HugeIcons.strokeRoundedSearch02, color: Colors.black)),            enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide(width: 2, color: Colors.red)),
                   focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide(width: 2, color: Colors.red))
                 ),
               ),
@@ -81,20 +79,7 @@ class QIpInfoMainTextField extends StatelessWidget {
                 Text("Отправляющий номер: +${state.callingCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Граничит с: ${state.borders}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("АСН: ${state.connection!.asn}", style: Theme.of(context).textTheme.labelSmall,),
-                SizedBox(height: 20,),
-                AnimatedContainer(
-                  duration: Duration(seconds: 1),
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  height: MediaQuery.of(context).size.width * 0.5,
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(48)),
-                      
-                  child: Image(
-                    image: 
-                Svg(state.flag!.img.toString(), source: SvgSource.network), errorBuilder: (context, error, stackTrace) {
-                  return SizedBox(width: MediaQuery.of(context).size.width * 0.5, child: ElevatedButton(onPressed: () {
-                    context.read<QIpInfoBloc>().add(QIpInfoBlocUserInfo(controller.text));
-                  }, child: Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).iconTheme.color,)),);
-                },)  )]));         
+                ]));         
                             },           
                           
               ),
