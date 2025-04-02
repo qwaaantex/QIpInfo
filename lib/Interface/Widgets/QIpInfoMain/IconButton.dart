@@ -14,7 +14,7 @@ class QIpInfoMainIconButton extends StatelessWidget {
             Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
               return SlideTransition(position: animation1.drive(Tween(begin: Offset(2, 0), end: Offset(0, 0))), child: QIpInfoSettings(),);
           }));
-          }, icon: Icon(HugeIcons.strokeRoundedNext, color: Theme.of(context).iconTheme.color, size: 50,))),
+          }, icon: Icon(HugeIcons.strokeRoundedNext, color: Theme.of(context).textTheme.titleLarge?.color, size: 50,))),
         SizedBox(height: 10,),
         Text("Что-то не подходит?", textAlign: TextAlign.center, style: Theme.of(context).textTheme.labelMedium,)
       ],);

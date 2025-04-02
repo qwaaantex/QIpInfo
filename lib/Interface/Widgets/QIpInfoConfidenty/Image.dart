@@ -1,3 +1,4 @@
+import 'package:QIpInfo/Interface/Widgets/QIpInfoConfidenty/Tittle.dart';
 import 'package:flutter/material.dart';
 
 class QIpInfoConfidentyImage extends StatelessWidget {
@@ -14,46 +15,49 @@ class QIpInfoConfidentyImage extends StatelessWidget {
               ),
               width: width,
               height: height * 0.5,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Column(mainAxisAlignment: MainAxisAlignment.center,
+                  QIpInfoConfidentyTittle(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.all(12),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          child: Image.asset(
-                            "lib/Assets/Images/Private.jpg",
-                            width: width * 0.4,
-                            errorBuilder: (context, error, stackTrace) {
-                              return CircularProgressIndicator();
-                            },
+                      Column(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(24),
+                              child: Image.asset(
+                                "lib/Assets/Images/Public.jpg",
+                                width: width * 0.4,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return CircularProgressIndicator();
+                                },
+                              ),
+                            ),
                           ),
-                        ),
+                           Text("Публичный",textAlign: TextAlign.center,),
+                        ],
                       ),
-                      Text("Локальный",textAlign: TextAlign.center,),
-                    ],
-                  ),
-              
-                  SizedBox(width: 2),
-                  Column(mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(12),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          child: Image.asset(
-                            "lib/Assets/Images/Public.jpg",
-                            width: width * 0.4,
-                            errorBuilder: (context, error, stackTrace) {
-                              return CircularProgressIndicator();
-                            },
+                      SizedBox(width: 2),
+                      Column(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(12),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(24),
+                              child: Image.asset(
+                                "lib/Assets/Images/Private.jpg",
+                                width: width * 0.4,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return CircularProgressIndicator();
+                                },
+                              ),
+                            ),
                           ),
-                        ),
+                          Text("Личный",textAlign: TextAlign.center,),
+                        ],
                       ),
-                       Text("Глобальный",textAlign: TextAlign.center,),
-
                     ],
                   ),
                 ],

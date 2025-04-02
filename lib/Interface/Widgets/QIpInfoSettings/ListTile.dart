@@ -1,18 +1,22 @@
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_bloc.dart';
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_events.dart';
 import 'package:QIpInfo/Data/BLoc/QIpInfoThemerBloc/QIpInfoThemerBloc_bloc.dart';
+import 'package:QIpInfo/Data/Provider/QProvider.dart';
 import 'package:QIpInfo/Interface/Screens/QIpInfoConfidenty.dart';
 import 'package:QIpInfo/Interface/Screens/QIpInfoUsersLicence.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoFeedBack/AlertDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:provider/provider.dart';
 
 class QIpInfoSettingsListTile extends StatelessWidget {
   const QIpInfoSettingsListTile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Provider.of<QProvider>(context).controller;
+
     return Column(
     
       children: [
@@ -29,7 +33,12 @@ class QIpInfoSettingsListTile extends StatelessWidget {
         },
           child: ListTile(title: Text("Конфиденциальность", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedLocker, color: Theme.of(context).iconTheme.color,),)),
         Divider(color: Colors.grey,),
-        ListTile(title: Text("Перезапуск служб", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedRefresh, color: Theme.of(context).iconTheme.color,),),
+        GestureDetector(onTap: () {
+          controller.clear();
+          BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocRemoveAll());
+          Navigator.pop(context);
+        },
+          child: ListTile(title: Text("Перезапуск служб", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedRefresh, color: Theme.of(context).iconTheme.color,),)),
         Divider(color: Colors.grey,),
         GestureDetector(onTap: () {
           BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocRemoveAll());

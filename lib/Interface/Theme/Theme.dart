@@ -20,7 +20,7 @@ ThemeData themeDark() {
 
     iconTheme: IconThemeData(color: Colors.white),
     scaffoldBackgroundColor: Colors.black,
-        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.black, selectionColor: Colors.black, selectionHandleColor: Colors.black),
+        textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white, selectionColor: Colors.black, selectionHandleColor: Colors.black),
         textTheme: TextTheme(titleMedium: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold), bodyMedium: TextStyle(color: Colors.white), labelMedium: TextStyle(color: Colors.grey), labelSmall: TextStyle(color: Colors.white), bodySmall: TextStyle(color: Colors.grey), headlineSmall: TextStyle(color: Colors.black, fontSize: 16), titleLarge: TextStyle(color: Colors.red.shade300, fontSize: 22, fontWeight: FontWeight.bold), titleSmall: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold), bodyLarge: TextStyle(color: Colors.white, fontSize: 15), displaySmall: TextStyle(color: Colors.black, fontSize: 14),)
   );
 }

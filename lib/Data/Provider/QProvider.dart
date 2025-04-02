@@ -25,4 +25,9 @@ class QProvider with ChangeNotifier {
     }
   }
 
+  void clearController() {
+    _controller.clear();
+    notifyListeners();
+  }
+
 }

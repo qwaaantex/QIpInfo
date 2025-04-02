@@ -6,13 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:provider/provider.dart';
 
 class QIpInfoMainTextField extends StatelessWidget {
   const QIpInfoMainTextField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController(text: context.read<QProvider>().userIp);
+    final controller = Provider.of<QProvider>(context).controller;
     return Center(
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.9,

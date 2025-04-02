@@ -8,6 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences storage = await SharedPreferences.getInstance();
   final theme = storage.getBool("_theme");
+  final confidenty = storage.getInt("_confidenty");
   await dotenv.load();
 
   runApp(QIpInfoMain(theme: theme,));

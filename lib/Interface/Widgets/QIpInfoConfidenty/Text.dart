@@ -22,7 +22,7 @@ class QIpInfoConfidentyText extends StatelessWidget {
               ),
               child: Column(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Выберите режим:", style: Theme.of(context).textTheme.titleMedium,),
+                  Text("Выберите режим", style: Theme.of(context).textTheme.titleMedium,),
                   SizedBox(
                     width: width,
                     height: height * 0.2,
@@ -46,8 +46,8 @@ class QIpInfoConfidentyText extends StatelessWidget {
                                     child: Container(
                                        
                                         key: ValueKey(state.index),
-                                        height: height * 0.14,
-                                        width: width * 0.34,
+                                        height: height * 0.1,
+                                        width: width * 0.25,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(48),
                                           color: index != state.index ? Theme.of(context).canvasColor : Colors.red.withOpacity(0.6),
