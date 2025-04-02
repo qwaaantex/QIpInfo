@@ -1,4 +1,5 @@
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_bloc.dart';
+import 'package:QIpInfo/Data/BLoc/QIpInfoConfidentyBloc/QIpInfoConfidenty_bloc.dart';
 import 'package:QIpInfo/Data/BLoc/QIpInfoThemerBloc/QIpInfoThemerBloc_bloc.dart';
 import 'package:QIpInfo/Data/Provider/QProvider.dart';
 import 'package:QIpInfo/Interface/Theme/Theme.dart';
@@ -18,7 +19,10 @@ class QIpInfoMain extends StatelessWidget {
     return ChangeNotifierProvider(create: (context) => QProvider(),
         child: MultiBlocProvider(providers: [
       BlocProvider(create: (context) => QIpInfoBloc()),
-      BlocProvider(create: (context) => QIpInfoThemerBlocBloc(theme))],
+      BlocProvider(create: (context) => QIpInfoThemerBlocBloc(theme)),
+      BlocProvider(create: (context) => QIpInfoConfidentyBloc()),
+
+      ],
     
       child: Builder(
         builder: (context) {

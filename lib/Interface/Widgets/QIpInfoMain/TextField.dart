@@ -24,6 +24,7 @@ class QIpInfoMainTextField extends StatelessWidget {
                 controller: controller,
                 style: TextStyle(color: Colors.black, fontSize: 15),
                 cursorColor: Colors.black,
+                minLines: 1,
                 onSubmitted: (value) {
                   BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(value));
                 
@@ -60,9 +61,13 @@ class QIpInfoMainTextField extends StatelessWidget {
                   children: [
                   Text("Упc, похоже произошла неизвестная ошибка!", style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
                   SizedBox(height: 20,),
-                  ElevatedButton(onPressed: () {
-                    BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(controller.text));
-                  }, child: Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).iconTheme.color,))
+                  Container(width: MediaQuery.of(context).size.width * 0.2,
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
+                    child: IconButton(
+                      onPressed: () {
+                      BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(controller.text));
+                    }, icon:  Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).iconTheme.color, size: 26,)),
+                  )
                 
                 ],),) :
                 Column(

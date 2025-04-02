@@ -1,3 +1,4 @@
+import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/IconButton.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/License.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/Text.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/TextField.dart';
@@ -17,8 +18,10 @@ class QIpInfoMainColumn extends StatelessWidget {
             QIpInfoMainText(),
             SizedBox(height: 20,),
             QIpInfoMainTextField(),
+            
           ],
         ),
+        QIpInfoMainIconButton(),
         Padding(padding: EdgeInsets.only(bottom: 10),
           child: QIpInfoMainLicense()),
         
