@@ -81,7 +81,7 @@ class QIpInfoMainTextField extends StatelessWidget {
                 Text("Оператор: ${state.connection!.domain}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Столица: ${state.capital}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Индекс: ${state.postal}", style: Theme.of(context).textTheme.labelSmall,),
-                Text("Широта: ${state.latitude} | Долгота: ${state.longitude}", style: Theme.of(context).textTheme.labelSmall,),
+                Text("Широта: ${state.latitude?.toStringAsFixed(3)} | Долгота: ${state.longitude?.toStringAsFixed(3)}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Отправляющий номер: +${state.callingCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Граничит с: ${state.borders}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("АСН: ${state.connection!.asn}", style: Theme.of(context).textTheme.labelSmall,),

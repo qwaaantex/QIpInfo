@@ -16,6 +16,7 @@ dependencies:
   flutter_dotenv: ^5.2.1
   flutter_svg_provider: ^1.0.7
   hugeicons: ^0.0.10
+  share_plus: ^10.1.4
   ionicons: ^0.2.2
   provider: ^6.1.4
   rive_animated_icon: ^2.0.3

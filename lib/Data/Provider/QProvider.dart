@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 class QProvider with ChangeNotifier {
   dynamic _userIp;
-  bool _isDarkTheme = ThemeMode.system == ThemeMode.dark ? true : false ;
+  final String _linkDownload = 'https://github.com/qwaaantex/QIpInfo';
+  final bool _isDarkTheme = ThemeMode.system == ThemeMode.dark ? true : false ;
   final TextEditingController _controller = TextEditingController();
   dynamic get userIp => _userIp;
   bool get isDarkTheme => _isDarkTheme;
+  String get linkDownload => _linkDownload;
   TextEditingController get controller => _controller;
   
   QProvider() {
@@ -22,6 +24,7 @@ class QProvider with ChangeNotifier {
     notifyListeners();
     } catch (e) {
       _userIp = null;
+      notifyListeners();
     }
   }
 

@@ -7,9 +7,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences storage = await SharedPreferences.getInstance();
-  final theme = storage.getBool("_theme");
-  final confidenty = storage.getInt("_confidenty");
+  final bool? theme = storage.getBool("_theme") ?? false;
+  final int? confidenty = storage.getInt("_confidenty") ?? 1;
   await dotenv.load();
 
-  runApp(QIpInfoMain(theme: theme,));
+  runApp(QIpInfoMain(theme: theme, index: confidenty,));
 }

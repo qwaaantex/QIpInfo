@@ -11,8 +11,9 @@ import 'package:provider/provider.dart';
 
 
 class QIpInfoMain extends StatelessWidget {
-  final theme;
-  const QIpInfoMain({super.key, this.theme});
+  final bool? theme;
+  final int? index;
+  const QIpInfoMain({super.key, this.theme, this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class QIpInfoMain extends StatelessWidget {
         child: MultiBlocProvider(providers: [
       BlocProvider(create: (context) => QIpInfoBloc()),
       BlocProvider(create: (context) => QIpInfoThemerBlocBloc(theme)),
-      BlocProvider(create: (context) => QIpInfoConfidentyBloc()),
+      BlocProvider(create: (context) => QIpInfoConfidentyBloc(index)),
 
       ],
     

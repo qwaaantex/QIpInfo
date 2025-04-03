@@ -23,7 +23,7 @@ class QIpInfoSettingsListTile extends StatelessWidget {
         BlocBuilder<QIpInfoThemerBlocBloc, bool>(
           builder: (context, state) { return ListTile(title: Text("Тема", style: Theme.of(context).textTheme.bodyMedium,), trailing: Switch(value: state, onChanged: (value) {
           
-            context.read<QIpInfoThemerBlocBloc>().add(QIpInfoThemerBlocEvent());
+            context.read<QIpInfoThemerBlocBloc>().changeTheme();
           }), leading: Icon(HugeIcons.strokeRoundedColorPicker, color: Theme.of(context).iconTheme.color,),);}),
         Divider(color: Colors.grey,),
         GestureDetector(onTap: () {
