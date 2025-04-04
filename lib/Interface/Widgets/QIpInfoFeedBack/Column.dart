@@ -11,11 +11,15 @@ class QIpInfoFeedBackColumn extends StatefulWidget {
 class _QIpInfoFeedBackColumnState extends State<QIpInfoFeedBackColumn> {
   @override
   Widget build(BuildContext context) {
-      return Column(mainAxisAlignment: MainAxisAlignment.start, mainAxisSize: MainAxisSize.min,
-      children: [
-       QIpInfoFeedBackTextField(),
-        ],
+      return Column(mainAxisSize: MainAxisSize.min, mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GestureDetector(onTap: () {
+              Navigator.pop(context);
+            },
+              child: Icon(Icons.close, color: Theme.of(context).textTheme.titleLarge?.color,)),
+            SizedBox(height: 5,),
+            QIpInfoFeedBackTextField(),
+      ]);
       
-    );
   }
 }

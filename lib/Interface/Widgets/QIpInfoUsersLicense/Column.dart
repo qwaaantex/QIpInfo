@@ -1,5 +1,5 @@
+import 'package:QIpInfo/Interface/Widgets/QIpInfoUsersLicense/Container.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoUsersLicense/IconButton.dart';
-import 'package:QIpInfo/Interface/Widgets/QIpInfoUsersLicense/Text.dart';
 import 'package:flutter/material.dart';
 
 class QIpInfoUsersLicenseColumn extends StatefulWidget {
@@ -14,9 +14,11 @@ class _QIpInfoUsersLicenseColumnState extends State<QIpInfoUsersLicenseColumn> {
   Widget build(BuildContext context) {
     return Column(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min,
       children: [
-      QIpInfoUsersLicenseText(),
+      QIpInfoUsersLicenseContainer(),
       SizedBox(height: 10,),
-      QIpInfoUsersLicenceIconButton()
+      QIpInfoUsersLicenceIconButton(),
+      SizedBox(height: 10,),
+
       ],);
   }
 }

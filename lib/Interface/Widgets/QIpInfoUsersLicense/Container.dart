@@ -7,13 +7,12 @@ class QIpInfoUsersLicenseContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.9;
-    return SingleChildScrollView(
-      child: Container(
+    return Container(
         width: width,
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
         child: QIpInfoUsersLicenseText(),
         
-      ),
+      
     );
   }
 }

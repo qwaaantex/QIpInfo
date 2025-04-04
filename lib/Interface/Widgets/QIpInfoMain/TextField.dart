@@ -2,6 +2,7 @@ import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_bloc.dart';
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_events.dart';
 import 'package:QIpInfo/Data/Models/QIpInfoModel/QIpInfoModel.dart';
 import 'package:QIpInfo/Data/Provider/QProvider.dart';
+import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/Tittle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,9 +15,11 @@ class QIpInfoMainTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Provider.of<QProvider>(context).controller;
+    final width = MediaQuery.of(context).size.width * 0.9;
+    final heigth = MediaQuery.of(context).size.height;
     return Center(
       child: SizedBox(
-        width: MediaQuery.of(context).size.width * 0.9,
+        width: width,
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -71,8 +74,14 @@ class QIpInfoMainTextField extends StatelessWidget {
                   )
                 
                 ],),) :
+                
                 Column(
-                    children: [Text("Континент: ${state.continent} | ${state.continentCode}", style: Theme.of(context).textTheme.labelSmall,),
+                    children: [QIpInfoMainTittle(),
+                    SizedBox(height: heigth * 0.01,),
+                    Divider(color: Colors.grey, indent: 20, endIndent: 20,),
+                    SizedBox(height: heigth * 0.01,),
+
+                Text("Континент: ${state.continent} | ${state.continentCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Регион: ${state.region} | ${state.regionCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Страна: ${state.country}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Интегрированный оператор: ${state.connection!.isp}", style: Theme.of(context).textTheme.labelSmall,),

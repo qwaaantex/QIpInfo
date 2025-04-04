@@ -9,6 +9,7 @@ class QIpInfoSettingsScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         leading:
         IconButton(onPressed: () {

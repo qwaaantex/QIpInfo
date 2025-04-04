@@ -16,7 +16,10 @@ class _QIpInfoAlertDialogState extends State<QIpInfoFeedBackAlertDialog> {
     final height = MediaQuery.of(context).size.height * 0.9;
     return SizedBox(width: width, height: height,
       child: AlertDialog(backgroundColor: Theme.of(context).canvasColor,
-        content: QIpInfoFeedBackColumn(),
+        content: 
+            QIpInfoFeedBackColumn(),
+          
+        
       ),
     );
   }
