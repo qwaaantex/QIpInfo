@@ -8,8 +8,7 @@ class QIpInfoSettingsColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-        
+            mainAxisAlignment: MainAxisAlignment.start,       
             mainAxisSize: MainAxisSize.min,
             children: [
               QIpInfoSettingsListTile()

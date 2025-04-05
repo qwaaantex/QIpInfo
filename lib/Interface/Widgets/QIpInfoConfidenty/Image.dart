@@ -15,7 +15,7 @@ class QIpInfoConfidentyImage extends StatelessWidget {
               ),
               width: width,
               height: height * 0.5,
-              child: Column(mainAxisAlignment: MainAxisAlignment.center,
+              child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   QIpInfoConfidentyTittle(),
                   Row(
