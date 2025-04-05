@@ -2,6 +2,7 @@ import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_bloc.dart';
 import 'package:QIpInfo/Data/BLoc/QIpInfoBloc/QIpInfoBloc_events.dart';
 import 'package:QIpInfo/Data/Models/QIpInfoModel/QIpInfoModel.dart';
 import 'package:QIpInfo/Data/Provider/QProvider.dart';
+import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/Error.dart';
 import 'package:QIpInfo/Interface/Widgets/QIpInfoMain/Tittle.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,31 +57,16 @@ class QIpInfoMainTextField extends StatelessWidget {
                 child: Align(alignment: Alignment.centerRight, child: Text("Объем: ~ 15", textAlign: TextAlign.start, style: Theme.of(context).textTheme.bodySmall,),)),
               SizedBox(height: 20,),
               BlocBuilder<QIpInfoBloc, QIpInfoModel>(
-                  key: ValueKey<dynamic>(context.read<QIpInfoBloc>().state),
                     builder:(context, state) {return AnimatedSwitcher(duration: Duration(milliseconds: 700),
                 child: state.success == null || controller.text == '' ? Center(
-                  child: Text("Пусто, говорят тут побывали драконы", style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,)) : state.success == false ?
-                Center(
-                  child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  Text("Упc, похоже произошла неизвестная ошибка!", style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
-                  SizedBox(height: 20,),
-                  Container(width: MediaQuery.of(context).size.width * 0.2,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
-                    child: IconButton(
-                      onPressed: () {
-                      BlocProvider.of<QIpInfoBloc>(context).add(QIpInfoBlocUserInfo(controller.text));
-                    }, icon:  Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).iconTheme.color, size: 26,)),
-                  )
-                
-                ],),) :
-                
+                  child: Text(key: ValueKey<dynamic>(context.read<QIpInfoBloc>().state),
+                    "Пусто, говорят тут побывали драконы", style: Theme.of(context).textTheme.labelMedium,textAlign: TextAlign.center,)) : state.success == false ? QIpInfoMainError()
+                 :                
                 Column(
                     children: [QIpInfoMainTittle(),
                     SizedBox(height: heigth * 0.01,),
                     Divider(color: Colors.grey, indent: 20, endIndent: 20,),
                     SizedBox(height: heigth * 0.01,),
-
                 Text("Континент: ${state.continent} | ${state.continentCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Регион: ${state.region} | ${state.regionCode}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("Страна: ${state.country}", style: Theme.of(context).textTheme.labelSmall,),
@@ -95,10 +81,8 @@ class QIpInfoMainTextField extends StatelessWidget {
                 Text("Граничит с: ${state.borders}", style: Theme.of(context).textTheme.labelSmall,),
                 Text("АСН: ${state.connection!.asn}", style: Theme.of(context).textTheme.labelSmall,),
                 ]));         
-                            },           
-                          
-              ),
-        
+                            },                                    
+              ),        
         ]),
       )));
   }

@@ -11,13 +11,13 @@ class QIpInfoFeedBackAlertDialog extends StatefulWidget {
 class _QIpInfoFeedBackAlertDialogState extends State<QIpInfoFeedBackAlertDialog> with TickerProviderStateMixin {
 
   late AnimationController _controller;
-  late Animation<Offset> _position;
+  late Animation<double> _opacity;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    _position = Tween<Offset>(begin: Offset(0, 1), end: Offset(0, 0)).animate(_controller)..addListener(() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    _opacity = Tween<double>(begin: 0, end: 1).animate(_controller)..addListener(() {
       setState(() {
       });
     });
@@ -33,13 +33,11 @@ class _QIpInfoFeedBackAlertDialogState extends State<QIpInfoFeedBackAlertDialog>
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.9;
     final height = MediaQuery.of(context).size.height * 0.9;
-    return SlideTransition(position: _position, child:
+    return FadeTransition(opacity: _opacity, child:
     SizedBox(width: width, height: height,
       child: AlertDialog(backgroundColor: Theme.of(context).canvasColor,
         content: 
-            QIpInfoFeedBackColumn(controller: _controller,),
-          
-        
+            QIpInfoFeedBackColumn(controller: _controller,),       
       ),
     ));
   }

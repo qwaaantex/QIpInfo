@@ -15,9 +15,9 @@ class _QIpInfoUsersLicenseColumnState extends State<QIpInfoUsersLicenseColumn> {
     return Column(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min,
       children: [
       QIpInfoUsersLicenseContainer(),
-      SizedBox(height: 10,),
+      SizedBox(height: 20,),
       QIpInfoUsersLicenceIconButton(),
-      SizedBox(height: 10,),
+      SizedBox(height: 20,),
 
       ],);
   }

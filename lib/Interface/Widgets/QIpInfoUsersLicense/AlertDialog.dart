@@ -58,7 +58,7 @@ class _QIpInfoUsersLicenseAlertDialogState extends State<QIpInfoUsersLicenseAler
             Column(mainAxisAlignment: MainAxisAlignment.center,
               children: [
               Text("Вас что-то не устроило?", style: Theme.of(context).textTheme.bodyMedium,),
-              Text("Поделитесь с нами", style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, fontSize: 14, fontWeight: FontWeight.bold,decoration: TextDecoration.underline, decorationThickness: 1, decorationColor: Colors.white, decorationStyle: TextDecorationStyle.solid),)
+              Text("Поделитесь с нами", style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color, fontSize: 14, fontWeight: FontWeight.bold,decoration: TextDecoration.underline, decorationThickness: 1, decorationColor: Theme.of(context).textTheme.bodyMedium?.color, decorationStyle: TextDecorationStyle.solid),)
             ],),
             Align(alignment: Alignment.topLeft,
               child: IconButton(onPressed: () async {

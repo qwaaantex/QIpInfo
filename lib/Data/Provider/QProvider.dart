@@ -5,10 +5,12 @@ class QProvider with ChangeNotifier {
   dynamic _userIp;
   final String _linkDownload = 'https://github.com/qwaaantex/QIpInfo';
   final Uri _linkToVisit = Uri.parse('https://t.me/qwaaantex');
+  final Uri _ErrorLink = Uri.parse("https://github.com/qwaaantex/QIpInfo/issues");
   final bool _isDarkTheme = ThemeMode.system == ThemeMode.dark ? true : false ;
   final TextEditingController _controller = TextEditingController();
   dynamic get userIp => _userIp;
   bool get isDarkTheme => _isDarkTheme;
+  Uri get ErrorLink => _ErrorLink;
   String get linkDownload => _linkDownload;
   Uri get linkToVisit => _linkToVisit;
   TextEditingController get controller => _controller;

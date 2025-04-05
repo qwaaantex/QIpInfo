@@ -1,4 +1,5 @@
 import 'package:QIpInfo/Interface/Widgets/QIpInfoSettings/ListTile.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class QIpInfoSettingsColumn extends StatelessWidget {
@@ -11,7 +12,13 @@ class QIpInfoSettingsColumn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,       
             mainAxisSize: MainAxisSize.min,
             children: [
-              QIpInfoSettingsListTile()
+              Container(
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(48), color: Theme.of(context).canvasColor),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: QIpInfoSettingsListTile(),
+                ),
+              ),
             ],
           
         

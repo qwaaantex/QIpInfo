@@ -18,8 +18,7 @@ class QIpInfoUsersLicenceIconButton extends StatelessWidget {
                 Navigator.pop(context);
               }, icon: Icon(HugeIcons.strokeRoundedCheckmarkCircle04, color: Theme.of(context).textTheme.titleLarge?.color, size: 50,)),
               IconButton(onPressed: () {
-                Navigator.pop(context);
-                showDialog(context: context, builder: (context) => Align(alignment: Alignment.topCenter,
+                  showDialog(context: context, builder: (context) => Align(alignment: Alignment.topCenter,
                   child: QIpInfoUsersLicenseAlertDialog()));
               }
               , icon: Icon(HugeIcons.strokeRoundedClosedCaption, color: Theme.of(context).textTheme.titleLarge?.color, size: 50,)),
