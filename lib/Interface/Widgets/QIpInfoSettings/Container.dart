@@ -33,35 +33,32 @@ class _QIpInfoSettingsContainerState extends State<QIpInfoSettingsContainer> wit
         SlideTransition(position: _position,
           child: Container(width: MediaQuery.of(context).size.width * 0.9,
             decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: Theme.of(context).canvasColor), child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
               Align(alignment: Alignment.centerLeft,
-                child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Icon(HugeIcons.strokeRoundedNotification01, color: Theme.of(context).textTheme.titleLarge?.color, size: 28,),
-              )),
+                child: Icon(HugeIcons.strokeRoundedNotification01, color: Theme.of(context).textTheme.titleLarge?.color, size: 28,)),
                   SizedBox(width: 10,),         
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Align(alignment: Alignment.center,
-                      child: Column(mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(widget.text1, style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color), textAlign: TextAlign.center,),
-                          Text(widget.text2, style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color), textAlign: TextAlign.center,),
-                        ],
-                      ),
+                  Align(alignment: Alignment.center,
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(widget.text1, style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color), textAlign: TextAlign.center,),
+                        Text(widget.text2, style: TextStyle(color: Theme.of(context).textTheme.bodyMedium?.color), textAlign: TextAlign.center,),
+                      ],
                     ),
                   ),
-                  SizedBox(width: 10,),
                   Align(alignment: Alignment.bottomRight,
-                    child: TextButton(onPressed: () async {
-                      await _controller.reverse();
-                              if (mounted) {Navigator.pop(context);}
-                    }, child: Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(48), color: Theme.of(context).textTheme.titleLarge?.color), child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text("Отмена", style: TextStyle(color: Colors.black),),
-                    ),)),
+                    child: Container(
+                      decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(48), color: Theme.of(context).textTheme.titleLarge?.color), child: GestureDetector(
+                      onTap: () async {
+                                          await _controller.reverse();
+                    if (mounted) {Navigator.pop(context);}
+                                        }, child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text("Отмена", style: TextStyle(color: Colors.black),),
+                                        ),
+                                        )),
                   )
                         ],),
             ),),

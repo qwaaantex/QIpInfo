@@ -42,50 +42,50 @@ class _QIpInfoMainAppBarState extends State<QIpInfoMainAppBar> {
   }
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(controller: _controller,
+    return CustomScrollView(
+      controller: _controller,
         slivers: [
         SliverAppBar(
           backgroundColor: Theme.of(context).scaffoldBackgroundColor, surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
       expandedHeight: MediaQuery.of(context).size.height * 0.18,
       pinned: true,
-      toolbarHeight: MediaQuery.of(context).size.height * 0.06,
       flexibleSpace: AnimatedSwitcher(duration: Duration(milliseconds: 100),
         child: !isClosed ? null :
-      FlexibleSpaceBar(
-        expandedTitleScale: 1.3,
-        titlePadding: EdgeInsets.all(10),
-        title: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.12,
-          child: 
-          Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,        
-                      children: [
-            
-              Column(crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-              Icon(HugeIcons.strokeRoundedGoogleMaps, color: Theme.of(context).textTheme.titleLarge?.color),
-              SizedBox(width: 10,),Text('QIpInfo', style: Theme.of(context).textTheme.titleLarge)]), 
-                Padding(padding: EdgeInsets.only(left: 10), child: Text("Добро пожаловать!", style: Theme.of(context).textTheme.titleSmall))]),
-            
-            Row(
-              children: [
-                IconButton(onPressed: () {
-                  context.read<QIpInfoBloc>().add(QIpInfoBlocRemoveAll());
-                }, icon: Icon(HugeIcons.strokeRoundedRemoveCircleHalfDot, color: Theme.of(context).iconTheme.color)),
-                IconButton(onPressed: () {
-                  Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
-                    return SlideTransition(position: animation1.drive(Tween(begin: Offset(2, 0), end: Offset.zero)), child: QIpInfoSettings(),);
-                  }));
-                }, icon: Icon(HugeIcons.strokeRoundedSettings03, color: Theme.of(context).iconTheme.color,),),
-              ],
-            ),
-          ],
-                    ),
-          ))),
+        FlexibleSpaceBar(
+          expandedTitleScale: 1.3,
+          titlePadding: EdgeInsets.all(10),
+          title: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.12,
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,        
+                        children: [
+              
+                Column(crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                Icon(HugeIcons.strokeRoundedGoogleMaps, color: Theme.of(context).textTheme.titleLarge?.color),
+                SizedBox(width: 10,),Text('QIpInfo', style: Theme.of(context).textTheme.titleLarge)]), 
+                  Padding(padding: EdgeInsets.only(left: 10), child: Text("Добро пожаловать!", style: Theme.of(context).textTheme.titleSmall))]),
+              
+              Row(
+                children: [
+                  IconButton(onPressed: () {
+                    context.read<QIpInfoBloc>().add(QIpInfoBlocRemoveAll());
+                  }, icon: Icon(HugeIcons.strokeRoundedRemoveCircleHalfDot, color: Theme.of(context).iconTheme.color)),
+                  IconButton(onPressed: () {
+                    Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
+                      return SlideTransition(position: animation1.drive(Tween(begin: Offset(2, 0), end: Offset.zero)), child: QIpInfoSettings(),);
+                    }));
+                  }, icon: Icon(HugeIcons.strokeRoundedSettings03, color: Theme.of(context).iconTheme.color,),),
+                ],
+              ),
+            ],
+                      ),
+          )),
+      ),
           title: AnimatedSwitcher(duration: Duration(milliseconds: 100),
         child: isClosed ? null :
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,10 +112,7 @@ class _QIpInfoMainAppBarState extends State<QIpInfoMainAppBar> {
           ],),
           
     )),
-            SliverAppBar(backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-              toolbarHeight: MediaQuery.of(context).size.height * 0.8,
-              flexibleSpace: FlexibleSpaceBar(background: QIpInfoMainColumn(),),),
-        
+            SliverFillRemaining(child: QIpInfoMainColumn(),) 
          ]);
   }
 }

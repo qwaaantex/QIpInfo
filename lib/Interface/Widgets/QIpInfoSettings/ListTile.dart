@@ -35,7 +35,9 @@ class QIpInfoSettingsListTile extends StatelessWidget {
                     return SlideTransition(position: animation1.drive(Tween(begin: Offset(2, 0), end: Offset(0, 0))), child: QIpInfoConfidenty(),);
                   }));
                 },
-                  child: ListTile(title: Text("Конфиденциальность", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedLocker, color: Theme.of(context).iconTheme.color,),)),
+                  child: ListTile(title: RichText(text: TextSpan(children: [
+                    TextSpan(text: "Конфиденциальность", style: Theme.of(context).textTheme.bodyMedium,), TextSpan(text: "*", style: TextStyle(color: Theme.of(context).textTheme.titleLarge?.color))
+                  ])), leading: Icon(HugeIcons.strokeRoundedLocker, color: Theme.of(context).iconTheme.color,),),),
                 GestureDetector(onTap: () async {
                   _dialog.show(message: 'Перезапуск...', type: SimpleFontelicoProgressDialogType.multiHurricane, backgroundColor: Theme.of(context).canvasColor, radius: 12, indicatorColor: Theme.of(context).textTheme.titleLarge?.color);
         await Future.delayed(Duration(seconds: 4));
@@ -53,19 +55,23 @@ class QIpInfoSettingsListTile extends StatelessWidget {
                           Navigator.pop(context);
                           },
                           child: ListTile(title: Text("Очистить", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedDelete01, color: Theme.of(context).iconTheme.color,) )),
-                
-      
                 GestureDetector(onTap: () {
                   showDialog(context: context, builder: (context) => 
                     QIpInfoFeedBackAlertDialog());
                 },
-                  child: ListTile(title: Text("Оставить отзыв", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedBookUpload, color: Theme.of(context).iconTheme.color,),)),
+                  child: ListTile(title: RichText(text: TextSpan(children: [
+                    TextSpan(text: "Оставить отзыв", style: Theme.of(context).textTheme.bodyMedium,),
+                    TextSpan(text: "*", style: TextStyle(color: Theme.of(context).textTheme.titleLarge?.color))
+                  ])), leading: Icon(HugeIcons.strokeRoundedBookUpload, color: Theme.of(context).iconTheme.color,),)),
                 GestureDetector(onTap: () {
                   Navigator.push(context, PageRouteBuilder(pageBuilder: (context, animation1, animation2) {
                     return SlideTransition(position: animation1.drive(Tween(begin: Offset(2.0, 0), end: Offset(0, 0))), child: QIpInfoUsersLicense(),);
                   }));
                 },
-                  child: ListTile(title: Text("Условия пользования", style: Theme.of(context).textTheme.bodyMedium,), leading: Icon(HugeIcons.strokeRoundedAccess, color: Theme.of(context).iconTheme.color,),)),
+                  child: ListTile(title: RichText(text: TextSpan(children: [
+                    TextSpan(text: "Условия пользования", style: Theme.of(context).textTheme.bodyMedium,),
+                    TextSpan(text: "*", style: TextStyle(color: Theme.of(context).textTheme.titleLarge?.color))
+                  ])), leading: Icon(HugeIcons.strokeRoundedAccess, color: Theme.of(context).iconTheme.color,),)),
                 GestureDetector(onTap: () async {
                   if (!await launchUrl(context.read<QProvider>().linkToVisit)) {
                     QIpInfoSettingsContainer(text1: "Упс.. Похоже", text2: "произошла неизвестная ошибка",);

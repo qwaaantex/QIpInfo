@@ -20,14 +20,15 @@ class _QIpInfoMainIconButtonState extends State<QIpInfoMainIconButton> with Sing
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.5,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(48), color: Theme.of(context).canvasColor),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Row(mainAxisAlignment: MainAxisAlignment.center, mainAxisSize: MainAxisSize.min,
           children: [
             IconButton(
+              style: Theme.of(context).iconButtonTheme.style,
                     onPressed: () async {
-                          final result = await Share.share("Привет, я использую QIpInfo для получения информации о пользователе. Скачай его и ты, по ссылке ${context.read<QProvider>().linkDownload}");
+                          final result = await Share.share("Привет, я использую QIpInfo для получения информации о пользователе. Скачай его и ты, по ссылке: ${context.read<QProvider>().linkDownload}");
                           if (result.status == ShareResultStatus.success)
                       {
                         return;

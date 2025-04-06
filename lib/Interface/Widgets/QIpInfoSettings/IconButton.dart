@@ -22,7 +22,7 @@ class QIpInfoSettingsIconButton extends StatelessWidget {
           }, icon: Icon(HugeIcons.strokeRoundedArrowLeft04, color: Theme.of(context).textTheme.titleLarge?.color, size: 50,)),
           SizedBox(width: 10,),
           IconButton(onPressed: () async {
-            final result = await Share.share("Привет, я использую QIpInfo для получения информации о пользователе. Скачай его и ты, по ссылке ${context.read<QProvider>().linkDownload}");
+            final result = await Share.share("Привет, я использую QIpInfo для получения информации о пользователе. Скачай его и ты, по ссылке: ${context.read<QProvider>().linkDownload}");
                           if (result.status == ShareResultStatus.success)
                       {
                         return;

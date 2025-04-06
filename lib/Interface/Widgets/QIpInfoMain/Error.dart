@@ -13,19 +13,24 @@ class QIpInfoMainError extends StatelessWidget {
     final controller = Provider.of<QProvider>(context).controller;
 
     return Center(
-                  child: Column(key:  ValueKey<dynamic>(context.read<QIpInfoBloc>().state),
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  Text("Упc, похоже произошла неизвестная ошибка!", style: Theme.of(context).textTheme.bodySmall, textAlign: TextAlign.center,),
-                  SizedBox(height: 20,),
-                  Container(width: MediaQuery.of(context).size.width * 0.2,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
-                    child: IconButton(
-                      onPressed: () {
-                      context.read<QIpInfoBloc>().add(QIpInfoBlocUserInfo(controller.text));
-                    }, icon:  Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).textTheme.titleLarge?.color, size: 26,)),
-                  )
-                
-                ],),);
+      child: Column(
+        key:  ValueKey<dynamic>(context.read<QIpInfoBloc>().state),
+        mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+      Text("Упc, похоже произошла неизвестная ошибка!", style: Theme.of(context).textTheme.labelMedium, textAlign: TextAlign.center,),
+      SizedBox(height: 20,),
+      Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(24), color: Theme.of(context).canvasColor),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: IconButton(
+            onPressed: () {
+            context.read<QIpInfoBloc>().add(QIpInfoBlocUserInfo(controller.text));
+          }, icon:  Icon(HugeIcons.strokeRoundedReload, color: Theme.of(context).textTheme.titleLarge?.color, size: 30,)),
+        ),
+      ),
+                      
+                      ],),
+    );
   }
 }
